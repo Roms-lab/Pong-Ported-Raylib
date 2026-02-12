@@ -3,23 +3,37 @@
 int Width = 800;
 int Height = 450;
 
-void DrawTitle() {
-    // -- Ask raylib how wide the word is ---
-    int TitleWidth = MeasureText("Pong Ported", 50);
-    DrawText("Pong Ported", (Width / 2) - (TitleWidth / 2), (Height / 2) - 25, 50, LIGHTGRAY);
+void DrawTitle(int screenWidth, int screenHeight) {
+
+    int fontSize = 50;
+    int TitleWidth = MeasureText("Pong Ported", fontSize);
+
+    int posX = (screenWidth / 2) - (TitleWidth / 2);
+    int posY = (int)(screenHeight * 0.05);
+
+    DrawText("Pong Ported", posX, posY, fontSize, LIGHTGRAY);
 }
 
 int main() {
+    // Resizable Window
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(Width, Height, "Pong Ported");
 
+    SetTargetFPS(60);
+
     while (!WindowShouldClose()) {
+        Width = GetScreenWidth();
+        Height = GetScreenHeight();
+
         BeginDrawing();
         ClearBackground(BLACK);
 
-        DrawTitle();
+        // Main Game Loop
+        DrawTitle(Width, Height);
 
         EndDrawing();
     }
+
     CloseWindow();
     return 0;
 }
