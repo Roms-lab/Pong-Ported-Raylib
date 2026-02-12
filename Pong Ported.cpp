@@ -1,18 +1,8 @@
 #include "raylib.h"
+#include "MenuScreen.hpp"
 
 int Width = 800;
 int Height = 450;
-
-void DrawTitle(int screenWidth, int screenHeight) {
-
-    int fontSize = 50;
-    int TitleWidth = MeasureText("Pong Ported", fontSize);
-
-    int posX = (screenWidth / 2) - (TitleWidth / 2);
-    int posY = (int)(screenHeight * 0.05);
-
-    DrawText("Pong Ported", posX, posY, fontSize, LIGHTGRAY);
-}
 
 int main() {
     // Resizable Window
