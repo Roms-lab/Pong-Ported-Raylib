@@ -20,6 +20,7 @@ int main() {
 
         // Main Game Loop
         DrawTitle(Width, Height);
+        Made_BY(Width, Height);
 
         EndDrawing();
     }
